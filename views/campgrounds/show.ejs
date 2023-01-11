@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Show</title>
-</head>
-<body>
-      <h1>This is <%=campground.title%></h1>
-      <h2>Loc. <%=campground.location%></h2>
-</body>
-</html>
+<% layout('layouts/boilerplate') %>
+<div class="row" style="display: flex;">
+      <div class="column" style="flex: 33.33%;padding: 5px;">
+            <h1>This is <%=campground.title%></h1>
+            <h2>Loc. <%=campground.location%></h2>
+            <p><%=campground.description%></p>
+            <h4>At just &dollar;<%=campground.price%></h3>
+            <p><a class="btn btn-dark" href="/campgrounds/<%=campground._id%>/edit">Edit</a></p>
+            <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">Delete</button>
+            </form>
+      </div>
+      <div class="column" style="flex: 33.33%;padding: 5px;">
+            <img src="<%=campground.image%>" style="height:600px; width:600px; object-fit: cover;">
+      </div>
+</div>
